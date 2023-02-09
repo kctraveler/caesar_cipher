@@ -8,9 +8,8 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0")
 
 include_directories(include)
-file(GLOB SRC src/*.cpp)
-add_executable(main ./src/main.cpp)
 add_executable(encoder.exe ./src/encoder.cpp ./src/utils.cpp)
+add_executable(decoder.exe ./src/decoder.cpp ./src/utils.cpp)
 
 add_custom_target(
 	copy-compile-commands ALL

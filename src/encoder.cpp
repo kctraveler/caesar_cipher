@@ -111,9 +111,5 @@ int main(int argc, char *argv[]) {
   sentence = encrypt(sentence, 3, true);
   std::cout << "Decrypted:\t" << sentence << std::endl;
 
-  for(int i = 0; i < lines;  i++){
-    if (out_path != "cout")
-  }
-
   return 0;
 }

@@ -73,8 +73,8 @@ CMAKE_BINARY_DIR = /home/runner/Caesar-Cipher-1-comp-339-439-ds-1
 
 # The main recursive "all" target.
 all: CMakeFiles/copy-compile-commands.dir/all
-all: CMakeFiles/encoder.dir/all
-all: CMakeFiles/main.dir/all
+all: CMakeFiles/decoder.exe.dir/all
+all: CMakeFiles/encoder.exe.dir/all
 
 .PHONY : all
 
@@ -85,8 +85,8 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/copy-compile-commands.dir/clean
-clean: CMakeFiles/encoder.dir/clean
-clean: CMakeFiles/main.dir/clean
+clean: CMakeFiles/decoder.exe.dir/clean
+clean: CMakeFiles/encoder.exe.dir/clean
 
 .PHONY : clean
 
@@ -118,58 +118,58 @@ CMakeFiles/copy-compile-commands.dir/clean:
 .PHONY : CMakeFiles/copy-compile-commands.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/encoder.dir
+# Target rules for target CMakeFiles/decoder.exe.dir
 
 # All Build rule for target.
-CMakeFiles/encoder.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles --progress-num=1,2,3 "Built target encoder"
-.PHONY : CMakeFiles/encoder.dir/all
+CMakeFiles/decoder.exe.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles --progress-num=1,2,3 "Built target decoder.exe"
+.PHONY : CMakeFiles/decoder.exe.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/encoder.dir/rule: cmake_check_build_system
+CMakeFiles/decoder.exe.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/encoder.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/decoder.exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles 0
-.PHONY : CMakeFiles/encoder.dir/rule
+.PHONY : CMakeFiles/decoder.exe.dir/rule
 
 # Convenience name for target.
-encoder: CMakeFiles/encoder.dir/rule
+decoder.exe: CMakeFiles/decoder.exe.dir/rule
 
-.PHONY : encoder
+.PHONY : decoder.exe
 
 # clean rule for target.
-CMakeFiles/encoder.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/clean
-.PHONY : CMakeFiles/encoder.dir/clean
+CMakeFiles/decoder.exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/clean
+.PHONY : CMakeFiles/decoder.exe.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Target rules for target CMakeFiles/encoder.exe.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles --progress-num=4,5 "Built target main"
-.PHONY : CMakeFiles/main.dir/all
+CMakeFiles/encoder.exe.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles --progress-num=4,5,6 "Built target encoder.exe"
+.PHONY : CMakeFiles/encoder.exe.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
+CMakeFiles/encoder.exe.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/encoder.exe.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/CMakeFiles 0
-.PHONY : CMakeFiles/main.dir/rule
+.PHONY : CMakeFiles/encoder.exe.dir/rule
 
 # Convenience name for target.
-main: CMakeFiles/main.dir/rule
+encoder.exe: CMakeFiles/encoder.exe.dir/rule
 
-.PHONY : main
+.PHONY : encoder.exe
 
 # clean rule for target.
-CMakeFiles/main.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
-.PHONY : CMakeFiles/main.dir/clean
+CMakeFiles/encoder.exe.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/clean
+.PHONY : CMakeFiles/encoder.exe.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

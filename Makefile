@@ -143,30 +143,57 @@ copy-compile-commands/fast:
 .PHONY : copy-compile-commands/fast
 
 #=============================================================================
-# Target rules for targets named encoder
+# Target rules for targets named decoder.exe
 
 # Build rule for target.
-encoder: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encoder
-.PHONY : encoder
+decoder.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 decoder.exe
+.PHONY : decoder.exe
 
 # fast build rule for target.
-encoder/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/build
-.PHONY : encoder/fast
+decoder.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/build
+.PHONY : decoder.exe/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named encoder.exe
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+encoder.exe: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 encoder.exe
+.PHONY : encoder.exe
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+encoder.exe/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/build
+.PHONY : encoder.exe/fast
+
+src/decoder.o: src/decoder.cpp.o
+
+.PHONY : src/decoder.o
+
+# target to build an object file
+src/decoder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/decoder.cpp.o
+.PHONY : src/decoder.cpp.o
+
+src/decoder.i: src/decoder.cpp.i
+
+.PHONY : src/decoder.i
+
+# target to preprocess a source file
+src/decoder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/decoder.cpp.i
+.PHONY : src/decoder.cpp.i
+
+src/decoder.s: src/decoder.cpp.s
+
+.PHONY : src/decoder.s
+
+# target to generate assembly for a file
+src/decoder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/decoder.cpp.s
+.PHONY : src/decoder.cpp.s
 
 src/encoder.o: src/encoder.cpp.o
 
@@ -174,7 +201,7 @@ src/encoder.o: src/encoder.cpp.o
 
 # target to build an object file
 src/encoder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/encoder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/encoder.cpp.o
 .PHONY : src/encoder.cpp.o
 
 src/encoder.i: src/encoder.cpp.i
@@ -183,7 +210,7 @@ src/encoder.i: src/encoder.cpp.i
 
 # target to preprocess a source file
 src/encoder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/encoder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/encoder.cpp.i
 .PHONY : src/encoder.cpp.i
 
 src/encoder.s: src/encoder.cpp.s
@@ -192,35 +219,8 @@ src/encoder.s: src/encoder.cpp.s
 
 # target to generate assembly for a file
 src/encoder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/encoder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/encoder.cpp.s
 .PHONY : src/encoder.cpp.s
-
-src/main.o: src/main.cpp.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
 
 src/utils.o: src/utils.cpp.o
 
@@ -228,7 +228,8 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/utils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -237,7 +238,8 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/utils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -246,7 +248,8 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.dir/build.make CMakeFiles/encoder.dir/src/utils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 # Help Target
@@ -258,14 +261,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... copy-compile-commands"
-	@echo "... encoder"
-	@echo "... main"
+	@echo "... decoder.exe"
+	@echo "... encoder.exe"
+	@echo "... src/decoder.o"
+	@echo "... src/decoder.i"
+	@echo "... src/decoder.s"
 	@echo "... src/encoder.o"
 	@echo "... src/encoder.i"
 	@echo "... src/encoder.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"

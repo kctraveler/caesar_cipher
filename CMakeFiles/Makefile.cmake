@@ -40,6 +40,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/copy-compile-commands.dir/DependInfo.cmake"
-  "CMakeFiles/encoder.dir/DependInfo.cmake"
-  "CMakeFiles/main.dir/DependInfo.cmake"
+  "CMakeFiles/decoder.exe.dir/DependInfo.cmake"
+  "CMakeFiles/encoder.exe.dir/DependInfo.cmake"
   )
