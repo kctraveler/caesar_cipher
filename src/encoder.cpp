@@ -1,4 +1,5 @@
 #include "utils.hpp"
+#include <fstream>
 #include <iostream>
 #include <vector>
 
@@ -29,7 +30,6 @@ void help(const char *prgname) {
  */
 std::string generate_sentence(std::vector<std::string> word_vector,
                               int min_length, int max_length) {
-  srand(time(NULL)); // TODO #ifdef to standardize seed for testing?
   int sentence_length = min_length + (rand() % (max_length - min_length));
   std::string sentence = "";
   for (int i = 0; i < sentence_length; i++) {
@@ -42,12 +42,41 @@ std::string generate_sentence(std::vector<std::string> word_vector,
 
 /**
  * Used to generate keys for encrypting sentences.
- * @return        A random integer between 0 and 25 to serve as the key for encryption
+ * @return        A random integer between 0 and 25 to serve as the key for
+ * encryption
  */
 int get_random_key() {
-  srand(time(NULL));
   int key = rand() % ALPHABET_RANGE;
   return key;
+}
+
+void generate_output(int num_lines, int min_length, int max_length,
+                     std::string word_path, std::string out_path) {
+  srand(time(NULL));
+  std::set<std::string> word_set = create_dict(word_path);
+  std::vector<std::string> word_vector = convert_set_to_vector(word_set);
+
+  if (out_path != "cout") {
+    ofstream out_file(out_path);
+    while (out_file.is_open()) {
+      for (int i = 0; i < num_lines; i++) {
+
+        int key = get_random_key();
+        auto sentence = generate_sentence(word_vector, min_length, max_length);
+        sentence = encrypt(sentence, key);
+        out_file << "Encrypted: " << sentence << std::endl;
+      }
+      out_file.close();
+    }
+  } else {
+    for (int i = 0; i < num_lines; i++) {
+
+      int key = get_random_key();
+      auto sentence = generate_sentence(word_vector, min_length, max_length);
+      sentence = encrypt(sentence, key);
+      cout << "Encrypted: " << sentence << std::endl;
+    }
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -65,7 +94,7 @@ int main(int argc, char *argv[]) {
     return 1;                                                                  \
   }
 
-    std::string key(argv[i++]);
+    std::string key = argv[i++];
     if (key == "-h" || key == "--help") {
       help(argv[0]);
       return 0;
@@ -99,17 +128,7 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  // create dictionary in the appropriate data structures
-  std::set<std::string> word_set = create_dict(dict_path);
-  std::vector<std::string> word_vector = convert_set_to_vector(word_set);
-
-  // temporary code for testing single sentence with known key.
-  auto sentence = generate_sentence(word_vector, min_length, max_length);
-  std::cout << "Input:\t" << sentence << std::endl;
-  sentence = encrypt(sentence, 3);
-  std::cout << "Encrypted:\t" << sentence << std::endl;
-  sentence = encrypt(sentence, 3, true);
-  std::cout << "Decrypted:\t" << sentence << std::endl;
+  generate_output(lines, min_length, max_length, dict_path, out_path);
 
   return 0;
 }

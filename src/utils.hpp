@@ -16,6 +16,3 @@ const string SPECIAL_CHARACTERS = " '@#$%^&*";
 extern set<string> create_dict(string file_path);
 extern vector<string> convert_set_to_vector(set<string> dict_set);
 extern string encrypt(string text, int key, bool decode = false);
-
-
-
