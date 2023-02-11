@@ -10,6 +10,7 @@ const int ALPHABET_SIZE = 26;
 const int ALPHABET_RANGE = 25;
 const string SPECIAL_CHARACTERS = " '@#$%^&*";
 
+
 // Functions 
 // Note: GKT added extern
 
