@@ -75,6 +75,52 @@ CMAKE_BINARY_DIR = /home/runner/Caesar-Cipher-1-comp-339-439-ds-1
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -96,6 +142,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/nix/store/cbxqzxwlga5pm9rk8qa8fgv5387r540l-cmake-3.19.7/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -130,17 +187,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named copy-compile-commands
+# Target rules for targets named decoder-test
 
 # Build rule for target.
-copy-compile-commands: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 copy-compile-commands
-.PHONY : copy-compile-commands
+decoder-test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 decoder-test
+.PHONY : decoder-test
 
 # fast build rule for target.
-copy-compile-commands/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/copy-compile-commands.dir/build.make CMakeFiles/copy-compile-commands.dir/build
-.PHONY : copy-compile-commands/fast
+decoder-test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/build
+.PHONY : decoder-test/fast
 
 #=============================================================================
 # Target rules for targets named decoder.exe
@@ -167,6 +224,85 @@ encoder.exe: cmake_check_build_system
 encoder.exe/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/build
 .PHONY : encoder.exe/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+src/decoder-test.o: src/decoder-test.cpp.o
+
+.PHONY : src/decoder-test.o
+
+# target to build an object file
+src/decoder-test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/decoder-test.cpp.o
+.PHONY : src/decoder-test.cpp.o
+
+src/decoder-test.i: src/decoder-test.cpp.i
+
+.PHONY : src/decoder-test.i
+
+# target to preprocess a source file
+src/decoder-test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/decoder-test.cpp.i
+.PHONY : src/decoder-test.cpp.i
+
+src/decoder-test.s: src/decoder-test.cpp.s
+
+.PHONY : src/decoder-test.s
+
+# target to generate assembly for a file
+src/decoder-test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/decoder-test.cpp.s
+.PHONY : src/decoder-test.cpp.s
 
 src/decoder.o: src/decoder.cpp.o
 
@@ -228,6 +364,7 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/utils.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
@@ -238,6 +375,7 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/utils.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
@@ -248,6 +386,7 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder-test.dir/build.make CMakeFiles/decoder-test.dir/src/utils.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/decoder.exe.dir/build.make CMakeFiles/decoder.exe.dir/src/utils.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/encoder.exe.dir/build.make CMakeFiles/encoder.exe.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
@@ -259,10 +398,22 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... copy-compile-commands"
+	@echo "... test"
+	@echo "... decoder-test"
 	@echo "... decoder.exe"
 	@echo "... encoder.exe"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
+	@echo "... src/decoder-test.o"
+	@echo "... src/decoder-test.i"
+	@echo "... src/decoder-test.s"
 	@echo "... src/decoder.o"
 	@echo "... src/decoder.i"
 	@echo "... src/decoder.s"

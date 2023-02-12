@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
       return 1;
     }
   }
-
+  std::cout << encrypt("HELLO WORLD", 3, false) << std::endl;
   generate_output(lines, min_length, max_length, dict_path, out_path);
 
   return 0;

@@ -32,8 +32,10 @@
 *.app
 *.o
 
-CMakeFiles/
+CMakeFiles/*
 compile_commands.json
 .replit
 replit.nix
 .breakpoints
+_deps/*
+build/*

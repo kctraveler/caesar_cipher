@@ -1,8 +1,8 @@
 #include "utils.hpp"
+#include "decoder.hpp"
 #include <fstream>
 #include <iostream>
 #include <vector>
-
 /*
 * Outputs help text for using the CLI
 * @param prgname  The name of the executable called
