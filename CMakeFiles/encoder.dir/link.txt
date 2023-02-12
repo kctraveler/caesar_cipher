@@ -1,1 +1,0 @@
-clang++ -rdynamic CMakeFiles/encoder.dir/src/encoder.cpp.o CMakeFiles/encoder.dir/src/utils.cpp.o -o encoder 

@@ -30,16 +30,13 @@ std::vector<std::string> parse_sentence(std::string sentence) {
       words[word_index] += sentence[i];
     }
   }
-  words.erase(words.begin()); // remove "Encrypted: from vector"
   return words;
 }
 
-// Validates if a sentene contains real word.
+// Validates if a sentence contains real word.
 bool validate_sentence(std::set<std::string> dict_set, std::string sentence) {
-  int valid_word_count = 0;
   auto sentence_vect = parse_sentence(sentence);
   for (std::string word : sentence_vect) {
-    // cout << word << endl;
     if (dict_set.count(word) == 0) {
       return false;
     }
@@ -49,100 +46,53 @@ bool validate_sentence(std::set<std::string> dict_set, std::string sentence) {
 
 // "Hacks" the encryption by iterating through all possible keys and checking if
 // the resulting sentence.
-std::string break_encrypt(std::set<string> dict_set, std::string sentence) {
+int break_encrypt(std::set<string> dict_set, std::string &sentence) {
   for (int i = 0; i < ALPHABET_SIZE; i++) {
     std::string decoded_sentence = encrypt(sentence, i, true);
     if (validate_sentence(dict_set, decoded_sentence)) {
-      return decoded_sentence;
+      sentence = decoded_sentence;
+      return i;
     }
   }
-  return sentence;
-}
-
-/*
- Reads input file, line by line.
-*/
-void readInput(std::string input_path) {
-  ifstream file;
-  file.open(input_path);
-  if (!file) {
-    cout << "Error opening file! Try again." << endl;
-    return;
-  }
-
-  string line;
-  while (getline(file, line)) {
-    cout << line << endl;
-  }
-
-  // file stays open for us to decode
-
-  //  file.close();
-}
-
-/* decoder method must
-1) open input file/read stdio
-2) process line by line
-3) use the caesar cipher code to get the key
-4) return the key and decoded text
-5) REPEAT FOR EACH LINE
-*/
-
-int get_random_key() {
-  int key = rand() % ALPHABET_RANGE;
-  return key;
+  return -1;
 }
 
 void read_input_decode(std::string word_path, std::string input_path,
                        std::string dec_out_path) {
-  // readInput(input_path);
 
-  string line;
-  ifstream input_file(input_path);
-  ofstream file2;
   std::set<std::string> dict_set = create_dict(word_path);
-  file2.open(dec_out_path);
 
-  // keeps reading lines while there is still a next line
-  while (getline(input_file, line)) {
-    // int key = get_random_key();
-    // writes input file to output
-    // STILL HAVE TO FACTOR IN DECRYPTION
-    // doesn't work but something like this maybe?
-    // int key = get_random_key();
-    // auto sentence = line;
-    // encrypt(sentence, key, true);
-    // cout << "Decrypted: " << sentence << endl;
+  ifstream input_file(input_path);
 
-    cout << break_encrypt(dict_set, line) << endl;
+  if (dec_out_path != "cout") {
+    ofstream output_file;
+    output_file.open(dec_out_path);
 
-    // writes decoded line to output file
-    // file2 << line << endl;
+    string line;
+    // keeps reading lines while there is still a next line
+    while (getline(input_file, line)) {
+      output_file << "Key: " << break_encrypt(dict_set, line);
+      output_file << " Plaintext: " << line << endl;
+    }
+
+    if (input_file.eof()) {
+
+      // closes both files
+      input_file.close();
+      output_file.close();
+    } else {
+      string line;
+      // keeps reading lines while there is still a next line
+      while (getline(input_file, line)) {
+        cout << "Key: " << break_encrypt(dict_set, line);
+        cout << " Plaintext: " << line << endl;
+      }
+
+      if (input_file.eof()) {
+        input_file.close();
+      }
+    }
   }
-
-  if (input_file.eof()) {
-    cout << "End of input file reached, both files closed." << endl;
-
-    // closes both files
-    input_file.close();
-    file2.close();
-  }
-
-  // file stays open
-
-  // write a method that reads one line and then decodes and then we run a
-  // loop to execute method for each line of input
-
-  /*
-      input file stays open
-      line by line each input file is read
-          when it's read its decoded
-          once the line is decoded it is written to output file
-      close both files
-      input stays the same
-      output file now has decoded text
-
-  */
 }
 
 int main(int argc, char *argv[]) {

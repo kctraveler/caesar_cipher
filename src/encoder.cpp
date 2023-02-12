@@ -64,7 +64,7 @@ void generate_output(int num_lines, int min_length, int max_length,
         int key = get_random_key();
         auto sentence = generate_sentence(word_vector, min_length, max_length);
         sentence = encrypt(sentence, key);
-        out_file << "Encrypted: " << sentence << std::endl;
+        out_file << sentence << std::endl;
       }
       out_file.close();
     }
@@ -74,7 +74,7 @@ void generate_output(int num_lines, int min_length, int max_length,
       int key = get_random_key();
       auto sentence = generate_sentence(word_vector, min_length, max_length);
       sentence = encrypt(sentence, key);
-      cout << "Encrypted: " << sentence << std::endl;
+      cout << sentence << std::endl;
     }
   }
 }
