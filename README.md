@@ -1,5 +1,5 @@
 # Introduction
-This is an implemenation of the Ceasar Cipher as an introduction to the C++ language and GTest. The code produces two executables for encoding and decoding text. Only upper case characters are supported.
+This is an implemenation of the Caesar Cipher as an introduction to the C++ language and GTest. The code produces two executables for encoding and decoding text. Only upper case characters are supported.
 
 ## encoder.exe
 This program creates "sentences" of random length between the provided parameters and random words from a list of possible words. It applies the Ceasar Cipher encryption using a random key. The results are either printed to the console or written to a file. 
@@ -23,4 +23,9 @@ This program takes a file of sentences encrypted by the ceasar cipher and cracks
 
 ## decoder-test.exe
 Uses GTest for some simple test cases that test the encryption algorithm. Also includes a test case related to the creation of the list of words with the standard ./words.txt
+
+## Sources
+The algorithm to apply the Caesar Cipher to text was inspired by [Geeks for Geeks Caesar Cipher in Cryptography](https://www.geeksforgeeks.org/caesar-cipher-in-cryptography/)
+
+The handeling of the command line interface took significant influence from the code provided by Dr. Christopher Stone in the hpc_f22 repository from COMP 464 last semester.
 

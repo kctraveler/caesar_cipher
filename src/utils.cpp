@@ -50,6 +50,8 @@ vector<string> convert_set_to_vector(set<string> dict_set) {
 /**
  * Handle both the encoding and decoding of the Ceasar Cipher encryption
  * algorithm.
+ * The "ASCII Magic Math" details borrowed from Geeks for Geeks Caesar Cipher in
+ * Cryptography link can be found in the readme.md
  * @param text      The string to be modified
  * @param key       Integer value for the encryption key (0-25)
  * @param decode    bool True puts the function into decode mode.
@@ -70,5 +72,3 @@ string encrypt(string text, int key, bool decode) {
   }
   return result;
 }
-
-
