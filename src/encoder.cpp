@@ -50,6 +50,13 @@ int get_random_key() {
   return key;
 }
 
+/**
+   Main driver method that is used to generate output for our encoded sentences.  Once the parameters for the sentence is defined, words are pulled from the dictionary to make up the sentences. If user decides to write to a file, the sentences are written to file path otherwise sentences are written to stdout. 
+  * @param min_length  The number of lines to output
+  * @param min_length  The minimum length of the sentence
+   * @param max_length  The maximum length of the sentence
+  
+  */
 void generate_output(int num_lines, int min_length, int max_length,
                      std::string word_path, std::string out_path) {
   srand(time(NULL));
@@ -127,7 +134,7 @@ int main(int argc, char *argv[]) {
       return 1;
     }
   }
-  std::cout << encrypt("HELLO WORLD", 3, false) << std::endl;
+
   generate_output(lines, min_length, max_length, dict_path, out_path);
 
   return 0;

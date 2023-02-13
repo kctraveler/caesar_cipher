@@ -57,6 +57,15 @@ int break_encrypt(std::set<string> dict_set, std::string &sentence) {
   return -1;
 }
 
+/*
+  Main driver method that takes in the encoded input and decrypts the input. Once the parameters are defined, the sentences are decrypted with the correct key. If user decides to write to a file, the decrypted sentences are written to file path along with their keys otherwise sentences are written to stdout. 
+
+  * @param word_path  Path to word list
+  * @param min_length  Path to encrypted input from the encoder method
+   * @param max_length  Path to decrypted output
+*/
+
+
 void read_input_decode(std::string word_path, std::string input_path,
                        std::string dec_out_path) {
 

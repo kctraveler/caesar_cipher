@@ -1,0 +1,7 @@
+add_test( Utils.EncryptTest /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/decoder-test [==[--gtest_filter=Utils.EncryptTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties( Utils.EncryptTest PROPERTIES WORKING_DIRECTORY /home/runner/Caesar-Cipher-1-comp-339-439-ds-1 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( Utils.DecryptTest /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/decoder-test [==[--gtest_filter=Utils.DecryptTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties( Utils.DecryptTest PROPERTIES WORKING_DIRECTORY /home/runner/Caesar-Cipher-1-comp-339-439-ds-1 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( Utils.CreateDictTest /home/runner/Caesar-Cipher-1-comp-339-439-ds-1/decoder-test [==[--gtest_filter=Utils.CreateDictTest]==] --gtest_also_run_disabled_tests)
+set_tests_properties( Utils.CreateDictTest PROPERTIES WORKING_DIRECTORY /home/runner/Caesar-Cipher-1-comp-339-439-ds-1 SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( decoder-test_TESTS Utils.EncryptTest Utils.DecryptTest Utils.CreateDictTest)
