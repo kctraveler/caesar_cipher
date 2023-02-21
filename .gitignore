@@ -34,12 +34,11 @@
 
 
 # Other Directories
-*/CMakeFiles/
-CMakeFiles/
-_deps/
-build/
-.ccls-cache/
-bin/
+CMakeFiles/**
+_deps/**
+build/**
+.ccls-cache/**
+bin/**
 reset/
 
 
@@ -51,3 +50,4 @@ replit.nix
 .breakpoints
 *.log
 *.cmake
+Makefile*
