@@ -1,1 +1,0 @@
-/nix/store/4xs1xyj8728yvh9y5v6ji819kwgfy2fv-gcc-wrapper-10.3.0/bin/g++ -g "CMakeFiles/decoder-test.dir/decoder-test.cpp.o" -o ../../bin/decoder-test  ../../lib/libgtest_main.a libdecoder.a.a libutils.a.a ../../lib/libgtest.a -lpthread 

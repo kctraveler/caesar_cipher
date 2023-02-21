@@ -32,16 +32,22 @@
 *.app
 *.o
 
+
+# Other Directories
+*/CMakeFiles/
 CMakeFiles/
-compile_commands.json
-.replit
-replit.nix
-.breakpoints
 _deps/
 build/
 .ccls-cache/
 bin/
+reset/
+
+
+# Other Files
+compile_commands.json
+.breakpoints
+.replit
+replit.nix
+.breakpoints
 *.log
-
-
-
+*.cmake
