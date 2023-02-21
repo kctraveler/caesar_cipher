@@ -1,0 +1,2 @@
+/nix/store/v8imx1nvyz0hgvx9cbcmh6gp4ngw3ffj-binutils-2.35.1/bin/ar qc libutils.a.a CMakeFiles/utils.a.dir/utils.cpp.o
+/nix/store/v8imx1nvyz0hgvx9cbcmh6gp4ngw3ffj-binutils-2.35.1/bin/ranlib libutils.a.a

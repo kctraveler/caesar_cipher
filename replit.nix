@@ -1,8 +1,13 @@
 { pkgs }: {
 	deps = [
-		pkgs.aspell
-  pkgs.clang_12
-		pkgs.cmake
+		pkgs.cling
+  pkgs.aspell
+    pkgs.aspellDicts.en
+    pkgs.cmake
+    pkgs.clang_12
+		pkgs.ccls
 		pkgs.gdb
+		pkgs.gnumake
+    pkgs.cmake
 	];
 }

@@ -1,0 +1,2 @@
+/nix/store/v8imx1nvyz0hgvx9cbcmh6gp4ngw3ffj-binutils-2.35.1/bin/ar qc libdecoder.lib.a CMakeFiles/decoder.lib.dir/decoder.cpp.o CMakeFiles/decoder.lib.dir/utils.cpp.o
+/nix/store/v8imx1nvyz0hgvx9cbcmh6gp4ngw3ffj-binutils-2.35.1/bin/ranlib libdecoder.lib.a

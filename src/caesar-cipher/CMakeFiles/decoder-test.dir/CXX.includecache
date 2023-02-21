@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/src/decoder.cpp
+decoder.hpp
+/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/src/decoder.hpp
+utils.hpp
+/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/src/utils.hpp
+fstream
+-
+iostream
+-
+vector
+-
+
+/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/src/decoder.hpp
+string
+-
+set
+-
+vector
+-
+
+/home/runner/Caesar-Cipher-1-comp-339-439-ds-1/src/utils.hpp
+string
+-
+set
+-
+vector
+-
+

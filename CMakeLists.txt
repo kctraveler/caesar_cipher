@@ -3,6 +3,9 @@ project (my_project)
 
 set(CMAKE_CXX_STANDARD 14)
 
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -12,20 +15,6 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(encoder.exe ./src/encoder.cpp ./src/utils.cpp)
-add_executable(decoder.exe ./src/decoder.cpp ./src/utils.cpp)
+add_subdirectory(src/caesar-cipher)
 
-enable_testing()
 
-add_executable(
-  decoder-test
-  ./src/decoder-test.cpp
-  ./src/utils.cpp
-)
-target_link_libraries(
-  decoder-test
-  GTest::gtest_main
-)
-
-include(GoogleTest)
-gtest_discover_tests(decoder-test)

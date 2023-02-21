@@ -1,13 +1,19 @@
-compile = "cmake --log-level=WARNING . && make "
-run = "./encoder.exe -l 4 -m 10"
-  
-entrypoint = "src/utils.cpp"
+compile = "rm -rf build && cmake -S . -B build && cmake --build build"
+run = "./build/bin/main"
+entrypoint = "main.cpp"
+hidden = ["main", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
+
+[nix]
+channel = "stable-22_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", ".ccls-cache"]
 
 [debugger]
 support = true
 
 [debugger.compile]
-command = "cmake -DCMAKE_BUILD_TYPE=Debug -B/tmp/build . && make -C /tmp/build"
+command = ["make", "main-debug"]
 noFileArgs = true
 
 [debugger.interactive]
@@ -45,7 +51,7 @@ externalConsole = false
 logging = {}
 miDebuggerPath = "gdb"
 name = "g++ - Build and debug active file"
-program = "/tmp/build/main"
+program = "./main-debug"
 request = "launch"
 setupCommands = [
 	{ description = "Enable pretty-printing for gdb", ignoreFailures = true, text = "-enable-pretty-printing" }
@@ -59,4 +65,4 @@ type = "cppdbg"
 pattern = "**/*.{cpp,h}"
 
 [languages.cpp.languageServer]
-start = "clangd"
+start = "clang"
