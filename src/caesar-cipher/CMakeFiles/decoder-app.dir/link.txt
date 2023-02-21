@@ -1,1 +1,0 @@
-/nix/store/4xs1xyj8728yvh9y5v6ji819kwgfy2fv-gcc-wrapper-10.3.0/bin/g++ -g "CMakeFiles/decoder-app.dir/decoder-app.cpp.o" -o ../../bin/decoder-app  libdecoder.a.a libutils.a.a 
