@@ -1,8 +1,9 @@
 FetchContent_MakeAvailable(googletest)
 
-add_library(utils.a utils.cpp)
-add_library(decoder.a decoder.cpp)
-target_link_libraries(decoder.a utils.a)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+add_library(utils utils.cpp)
+add_library(decoder decoder.cpp)
+target_link_libraries(decoder utils)
 
 enable_testing()
 
@@ -13,8 +14,8 @@ add_executable(
 target_link_libraries(
   decoder-test
   GTest::gtest_main
-  decoder.a
-  utils.a
+  decoder
+  utils
 )
 
 add_executable(
@@ -24,7 +25,7 @@ add_executable(
 
 target_link_libraries(
   encoder 
-  utils.a
+  utils
 )
 
 add_executable(
@@ -33,8 +34,8 @@ add_executable(
 )
 target_link_libraries(
   decoder-app 
-  decoder.a 
-  utils.a
+  decoder
+  utils
 )
 
 include(GoogleTest)
