@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.14)
+cmake_minimum_required (VERSION 3.21.3)
 project (my_project)
 
 set(CMAKE_CXX_STANDARD 14)
@@ -16,6 +16,6 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(src/caesar-cipher)
-add_subdirectory(src/bloom-filter)
+add_subdirectory(src/bloom)
 
 
