@@ -3,7 +3,7 @@
 # Set default maximum and step values for the two integer parameters
 max_bits=100000000000
 step_val=10000000
-max_k=3
+max_k=4
 
 # Parse the command line arguments for the maximum and step values
 while [[ $# -gt 0 ]]; do

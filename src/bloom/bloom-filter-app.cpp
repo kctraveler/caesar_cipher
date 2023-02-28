@@ -15,6 +15,7 @@ int populate_filter(std::string file_path, BloomFilter filter) {
     while (getline(words_file, line)) {
       if (filter.find(line)) {
         num_conflicts +=1;
+        filter.add(line);
       }else {
         filter.add(line);
       }

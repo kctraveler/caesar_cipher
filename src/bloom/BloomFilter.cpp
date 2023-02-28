@@ -7,6 +7,7 @@
 #include "boost/dynamic_bitset.hpp"
 #include <functional>
 #include "boost/functional/hash.hpp"
+#include <cmath>
 
 // Need to figure out if this should be a member of the class. 
 // Had difficulty when seperateing the definition and implementation
@@ -27,12 +28,21 @@ std::function<std::size_t(std::string&)> fun_arr[] = {
         hash = (hash << 5) + hash + c; /* hash * 33 + c */
     }
     return hash;
+},
+// sdbm
+[](std::string& str) { 
+    size_t hash = 0;
+    for (auto c : str) {
+        hash = c + (hash << 6) + (hash << 16) - hash;
+    }
+    return hash;
 }
+  
   // Addl hash functions go here
 };
 
 // Constructor for bloom filter p
-BloomFilter::BloomFilter(size_t m, int k): m(m), k(k){
+BloomFilter::BloomFilter(size_t m, int k): m(m), k(k), n(0){
   filter = boost::dynamic_bitset<>(this->m);
 };
 
@@ -43,14 +53,16 @@ void BloomFilter::add(std::string str){
     auto hash_val = fun_arr[i](str);
     filter[hash_val % this->m] = true;
   }
+  this->n += 1;
 }
 
-bool BloomFilter::find(std::string str){
+float BloomFilter::find(std::string str){
   int num_hash_funcs = sizeof(fun_arr)/sizeof(fun_arr[0]);
   for(int i = 0; i < k && i < num_hash_funcs ; i++ ){
     auto hash_val = fun_arr[i](str);
     if(!filter[hash_val % this->m])
-      return false;
+      return 0;
   }
-  return true;
+  float probability  = pow((1.0 - pow((1.0 - 1.0/this->m),(this->k * this->n))), this->k);
+  return probability;
 }
