@@ -17,5 +17,6 @@ FetchContent_MakeAvailable(googletest)
 
 add_subdirectory(src/caesar-cipher)
 add_subdirectory(src/bloom)
+add_subdirectory(src/word-cloud)
 
 

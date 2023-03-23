@@ -16,6 +16,7 @@ int populate_filter(std::string file_path, BloomFilter filter) {
       if (filter.find(line)) {
         num_conflicts +=1;
         filter.add(line);
+        printf("%s \n", &*line.begin());
       }else {
         filter.add(line);
       }
