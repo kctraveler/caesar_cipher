@@ -39,6 +39,7 @@ _deps/**
 build/**
 .ccls-cache/**
 bin/**
+.vscode/**
 
 
 # Other Files
@@ -52,3 +53,4 @@ replit.nix
 Makefile*
 CMakeCache.txt
 FEEDBACK
+*.code-workspace
