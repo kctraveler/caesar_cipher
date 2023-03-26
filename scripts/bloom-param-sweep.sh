@@ -31,17 +31,20 @@ done
 bit_test_range=($(seq $step_val $step_val $max_bits))
 k_range=($(seq 1 1 $max_k))
 
+parent_path=$(cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P)
+cd $parent_path
+cd ..
 # Loop through each combination of parameter values
 for k in "${k_range[@]}"
 do
     for size in "${bit_test_range[@]}"
     do
-      num_collisions=$(~/Caesar-Cipher-1-comp-339-439-ds-1/bin/bloom-filter -b $size -h $k)
-        if [ $num_collisions -eq 0 ]
-        then
-          printf "Min bits with %d hash functions:\t\t%d\n" $k $size 
-          break
-        fi
+      num_collisions=$(./bin/bloom-filter -b $size -h $k)
+       if [ $num_collisions -eq 0 ]
+       then
+         printf "Min bits with %d hash functions:\t\t%d\n" $k $size 
+         break
+       fi
     done
 done
 
